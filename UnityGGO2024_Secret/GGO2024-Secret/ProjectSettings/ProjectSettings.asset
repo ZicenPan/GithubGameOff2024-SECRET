@@ -910,11 +910,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 2c605411-b5cb-4d8c-bbd5-8202f24cb3e6
+  cloudProjectId: b86e2ee0-176b-46b3-b139-00ae36cf536e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: GGO2024-Secret
-  organizationId: panzicen
+  organizationId: catzp
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

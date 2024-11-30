@@ -1,0 +1,4 @@
+repository "GGO2024-Secret/GGO2024-Secret@2475719522753@cloud"
+  path "/"
+    br "/main"
+    co "/main"
