@@ -18,7 +18,7 @@ public class AnimationManager : MonoBehaviour
         switch (type)
         {
             case AniTimeline.WantEat:
-                wantEat.extrapolationMode = DirectorWrapMode.None;
+                wantEat.extrapolationMode = DirectorWrapMode.Hold;
                 wantEat.gameObject.SetActive(false);
                 break;
             default:

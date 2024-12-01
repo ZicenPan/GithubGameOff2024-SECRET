@@ -19,6 +19,8 @@ public class StoryManager : MonoBehaviour
 
     public Button catFood;
 
+    private bool reading = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,13 @@ public class StoryManager : MonoBehaviour
         animationManager.stopAnimation(AniTimeline.WantEat);
         animationManager.playAnimation(AniTimeline.Eat);
         catFood.gameObject.SetActive(false);
+    }
+
+    private void toggleMove()
+    {
+        cameraManager.setMoving(reading);
+        dialogueBox.setProgressing(!reading);
+        reading = !reading;
     }
     private void storyProgress()
     {

@@ -22,24 +22,29 @@ public class DialogueBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!started)
+            textBoxClicked();
+        }
+    }
+
+    public void textBoxClicked ()
+    {
+        if (!started)
+        {
+            started = true;
+            StartDialogue();
+        }
+        else
+        {
+            if (progressing && textComponent.text == lines[index])
             {
-                started = true;
-                StartDialogue();
+                NextLine();
             }
             else
             {
-                if (progressing && textComponent.text == lines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textComponent.text = lines[index];
-                }
+                StopAllCoroutines();
+                textComponent.text = lines[index];
             }
         }
     }
