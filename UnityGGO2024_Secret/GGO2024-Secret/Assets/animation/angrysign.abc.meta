@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a0605dba30ec8334bab47ffc531c0351
+guid: f00c7b8f245e7344593c4618931e636f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects:
@@ -7,7 +7,7 @@ ScriptedImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 'pPlane2/pPlaneShape2:000:'
-    second: {fileID: 2100000, guid: 71e0ae6fafd66cc4c9c7dafb57128e81, type: 2}
+    second: {fileID: 2100000, guid: 67cfdfc461b2d8644afcabb308ed080c, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
