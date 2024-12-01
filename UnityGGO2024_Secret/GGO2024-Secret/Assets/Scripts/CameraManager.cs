@@ -14,6 +14,7 @@ public enum CameraScene
 public class CameraManager : MonoBehaviour
 {
     public GameObject cameraBedroom;
+    public GameObject UIBedroom;
     public GameObject cameraDownstairs;
     public GameObject cameraStudy;
     public GameObject cameraTV;
@@ -35,6 +36,7 @@ public class CameraManager : MonoBehaviour
         {
             case CameraScene.Bedroom:
                 cameraBedroom.SetActive(false);
+                UIBedroom.SetActive(false);
                 break;
             case CameraScene.Downstairs:
                 cameraDownstairs.SetActive(false);
@@ -67,6 +69,29 @@ public class CameraManager : MonoBehaviour
                 break;
         }
         index = tarIndex;
+    }
+
+    public void loadUI(CameraScene index)
+    {
+        switch (index)
+        {
+            case CameraScene.Bedroom:
+                UIBedroom.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+    public void unloadUI(CameraScene index)
+    {
+        switch (index)
+        {
+            case CameraScene.Bedroom:
+                UIBedroom.SetActive(false);
+                break;
+            default:
+                break;
+        }
     }
 
     public void setMoving(bool mov)

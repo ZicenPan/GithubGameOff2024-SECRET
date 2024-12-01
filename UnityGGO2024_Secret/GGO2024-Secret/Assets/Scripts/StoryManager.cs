@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public enum Story
 {
     Beginning,
-    D1Eat
+    D1Eat,
+    D1Love
 }
 public class StoryManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class StoryManager : MonoBehaviour
 
     private bool reading = true;
 
+    private float curTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class StoryManager : MonoBehaviour
         animationManager.stopAnimation(AniTimeline.WantEat);
         animationManager.playAnimation(AniTimeline.Eat);
         catFood.gameObject.SetActive(false);
+        curStage = Story.D1Love;
     }
 
     private void toggleMove()
@@ -48,19 +51,33 @@ public class StoryManager : MonoBehaviour
                 if (dialogueBox.getIndex() == 2 && dialogueBox.lineFinished())
                 {
                     cameraManager.setMoving(true);
+                    cameraManager.loadUI(CameraScene.Bedroom);
                     dialogueBox.setProgressing(false);
                 }
                 if (cameraManager.index == CameraScene.Downstairs)
                 {
                     cameraManager.setMoving(false);
+                    cameraManager.unloadUI(CameraScene.Bedroom);
+                    soundManager.setPlaying(false);
                     dialogueBox.setProgressing(true);
-                    dialogueBox.NextLine();
-                    dialogueBox.setProgressing(false);
-                    catFood.gameObject.SetActive(true);
-                    curStage = Story.D1Eat;
+                    if (dialogueBox.getIndex() == 3 && dialogueBox.lineFinished())
+                    {
+                        dialogueBox.setProgressing(false);
+                        catFood.gameObject.SetActive(true);
+                        curStage = Story.D1Eat;
+                    }
                 }
                 break;
             case Story.D1Eat:
+                break;
+            case Story.D1Love:
+                curTimer += Time.deltaTime;
+                if (curTimer > 10.0f)
+                {
+                    animationManager.OnEatStopped();
+                }
+                break;
+            default:
                 break;
         }
     }
