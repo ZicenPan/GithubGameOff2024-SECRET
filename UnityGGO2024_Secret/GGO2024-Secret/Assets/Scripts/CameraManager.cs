@@ -16,6 +16,7 @@ public class CameraManager : MonoBehaviour
     public GameObject cameraBedroom;
     public GameObject UIBedroom;
     public GameObject cameraDownstairs;
+    public GameObject UIDownstairs;
     public GameObject cameraStudy;
     public GameObject cameraTV;
     public GameObject cameraWindow;
@@ -78,6 +79,9 @@ public class CameraManager : MonoBehaviour
             case CameraScene.Bedroom:
                 UIBedroom.SetActive(true);
                 break;
+            case CameraScene.Downstairs:
+                UIDownstairs.SetActive(true);
+                break;
             default:
                 break;
         }
@@ -88,6 +92,9 @@ public class CameraManager : MonoBehaviour
         {
             case CameraScene.Bedroom:
                 UIBedroom.SetActive(false);
+                break;
+            case CameraScene.Downstairs:
+                UIDownstairs.SetActive(false);
                 break;
             default:
                 break;
