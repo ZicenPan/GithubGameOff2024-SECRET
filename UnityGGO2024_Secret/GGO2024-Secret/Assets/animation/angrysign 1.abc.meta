@@ -1,8 +1,13 @@
 fileFormatVersion: 2
-guid: 68e9cd56c86a29b43af94cacbedc2511
+guid: a0605dba30ec8334bab47ffc531c0351
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'pPlane2/pPlaneShape2:000:'
+    second: {fileID: 2100000, guid: 71e0ae6fafd66cc4c9c7dafb57128e81, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -16,7 +21,7 @@ ScriptedImporter:
     tangents: 1
     cameraAspectRatio: 2
     importVisibility: 1
-    scaleFactor: 0.01
+    scaleFactor: 0.15
     swapHandedness: 1
     flipFaces: 0
     interpolateSamples: 1
