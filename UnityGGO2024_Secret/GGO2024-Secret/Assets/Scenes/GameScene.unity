@@ -3897,9 +3897,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curStage: 0
-  soundManager: {fileID: 0}
-  dialogueBox: {fileID: 0}
-  cameraManager: {fileID: 0}
+  soundManager: {fileID: 2054386919}
+  dialogueBox: {fileID: 1723333528}
+  cameraManager: {fileID: 2126370830}
 --- !u!4 &1663687927
 Transform:
   m_ObjectHideFlags: 0
@@ -3971,7 +3971,7 @@ MonoBehaviour:
   - Morning...
   - Uhhh my cat is meowing again!
   - Does she want something from me?
-  - Oh, look like she is hungry.
+  - Oh, look like she is hungry. Cat food should be nearby I think.
   textSpeed: 0.1
   index: 0
 --- !u!114 &1723333529
@@ -4028,22 +4028,22 @@ PrefabInstance:
     - target: {fileID: 2094266285111250729, guid: 5d695308f30555142a26bfa24fce2c1c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75265235
+      value: 0.2635815
       objectReference: {fileID: 0}
     - target: {fileID: 2094266285111250729, guid: 5d695308f30555142a26bfa24fce2c1c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7342907
+      value: 1.8533833
       objectReference: {fileID: 0}
     - target: {fileID: 2094266285111250729, guid: 5d695308f30555142a26bfa24fce2c1c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.938174
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2094266285111250729, guid: 5d695308f30555142a26bfa24fce2c1c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.34616414
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7932156002819257464, guid: 5d695308f30555142a26bfa24fce2c1c,
         type: 3}
@@ -4335,7 +4335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2126370826
 RectTransform:
   m_ObjectHideFlags: 0

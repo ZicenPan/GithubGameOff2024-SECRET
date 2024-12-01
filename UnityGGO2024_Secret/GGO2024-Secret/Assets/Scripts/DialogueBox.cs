@@ -69,15 +69,18 @@ public class DialogueBox : MonoBehaviour
 
     public void NextLine()
     {
-        if (index < lines.Length - 1)
+        if (progressing)
         {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-        else
-        {
-            gameObject.SetActive(false);
+            if (index < lines.Length - 1)
+            {
+                index++;
+                textComponent.text = string.Empty;
+                StartCoroutine(TypeLine());
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

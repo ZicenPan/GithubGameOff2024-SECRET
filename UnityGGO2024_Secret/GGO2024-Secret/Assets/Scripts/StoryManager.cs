@@ -26,14 +26,16 @@ public class StoryManager : MonoBehaviour
         switch(curStage) 
         {
             case Story.Beginning:
-                if (dialogueBox.getIndex() == 3 && dialogueBox.lineFinished())
+                if (dialogueBox.getIndex() == 2 && dialogueBox.lineFinished())
                 {
                     cameraManager.setMoving(true);
                     dialogueBox.setProgressing(false);
                 }
                 if (cameraManager.index == CameraScene.Downstairs)
                 {
+                    dialogueBox.setProgressing(true);
                     dialogueBox.NextLine();
+                    curStage = Story.D1Eat;
                 }
                 break;
             case Story.D1Eat:
