@@ -14,13 +14,17 @@ public enum CameraScene
 public class CameraManager : MonoBehaviour
 {
     public GameObject cameraBedroom;
-    public GameObject UIBedroom;
     public GameObject cameraDownstairs;
-    public GameObject UIDownstairs;
     public GameObject cameraStudy;
     public GameObject cameraTV;
     public GameObject cameraWindow;
     public GameObject cameraSofa;
+    public GameObject UIBedroom;
+    public GameObject UIDownstairs;
+    public GameObject UIStudy;
+    public GameObject UITV;
+    public GameObject UIWindow;
+    public GameObject UISofa;
 
     public CameraScene index = CameraScene.Bedroom;
     private CameraScene tarIndex;
@@ -41,18 +45,23 @@ public class CameraManager : MonoBehaviour
                 break;
             case CameraScene.Downstairs:
                 cameraDownstairs.SetActive(false);
+                UIDownstairs.SetActive(false);
                 break;
             case CameraScene.Study:
                 cameraStudy.SetActive(false);
+                UIStudy.SetActive(false);
                 break;
             case CameraScene.TV:
                 cameraTV.SetActive(false);
+                UITV.SetActive(false);
                 break;
             case CameraScene.Window:
                 cameraWindow.SetActive(false);
+                UIWindow.SetActive(false);
                 break;
             case CameraScene.Sofa:
                 cameraSofa.SetActive(false);
+                UISofa.SetActive(false);
                 break;
             default:
                 break;
@@ -62,9 +71,27 @@ public class CameraManager : MonoBehaviour
         {
             case CameraScene.Bedroom:
                 cameraBedroom.SetActive(true);
+                UIBedroom.SetActive(true);
                 break;
             case CameraScene.Downstairs:
                 cameraDownstairs.SetActive(true);
+                UIDownstairs.SetActive(true);
+                break;
+            case CameraScene.TV:
+                cameraTV.SetActive(true);
+                UITV.SetActive(true);
+                break;
+            case CameraScene.Study:
+                cameraStudy.SetActive(true);
+                UIStudy.SetActive(true);
+                break;
+            case CameraScene.Window:
+                cameraWindow.SetActive(true);
+                UIWindow.SetActive(true);
+                break;
+            case CameraScene.Sofa:
+                cameraSofa.SetActive(true);
+                UISofa.SetActive(true);
                 break;
             default:
                 break;
@@ -81,6 +108,18 @@ public class CameraManager : MonoBehaviour
                 break;
             case CameraScene.Downstairs:
                 UIDownstairs.SetActive(true);
+                break;
+            case CameraScene.TV:
+                UITV.SetActive(true);
+                break;
+            case CameraScene.Study:
+                UIStudy.SetActive(true);
+                break;
+            case CameraScene.Window:
+                UIWindow.SetActive(true);
+                break;
+            case CameraScene.Sofa:
+                UISofa.SetActive(true);
                 break;
             default:
                 break;
@@ -132,6 +171,18 @@ public class CameraManager : MonoBehaviour
             {
                 moveW();
             }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                moveD();
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                moveA();
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                moveS();
+            }
         }
     }
 
@@ -142,9 +193,61 @@ public class CameraManager : MonoBehaviour
             case CameraScene.Bedroom:
                 tarIndex = CameraScene.Downstairs;
                 break;
+            case CameraScene.Downstairs:
+                tarIndex = CameraScene.Bedroom;
+                break;
+            case CameraScene.TV:
+                tarIndex = CameraScene.Study;
+                break;
             default:
                 break;
         }
         ChangeCamera();
     }
+    private void moveD()
+    {
+        switch (index)
+        {
+            case CameraScene.Downstairs:
+                tarIndex = CameraScene.TV;
+                break;
+            case CameraScene.TV:
+                tarIndex = CameraScene.Window;
+                break;
+            case CameraScene.Window:
+                tarIndex = CameraScene.Sofa;
+                break;
+            default:
+                break;
+        }
+        ChangeCamera();
+    }
+    private void moveA()
+    {
+        switch (index)
+        {
+            case CameraScene.TV:
+                tarIndex = CameraScene.Downstairs;
+                break;
+            case CameraScene.Window:
+                tarIndex = CameraScene.TV;
+                break;
+            default:
+                break;
+        }
+        ChangeCamera();
+    }
+    private void moveS()
+    {
+        switch (index)
+        {
+            case CameraScene.Study:
+                tarIndex = CameraScene.TV;
+                break;
+            default:
+                break;
+        }
+        ChangeCamera();
+    }
+
 }

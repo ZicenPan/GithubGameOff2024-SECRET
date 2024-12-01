@@ -9,7 +9,8 @@ public enum Story
     Beginning,
     D1Eat,
     D1Love,
-    D1GoToWork
+    D1GoToWork,
+    D1MovingToWork,
 }
 public class StoryManager : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class StoryManager : MonoBehaviour
                 {
                     cameraManager.setMoving(false);
                     cameraManager.unloadUI(CameraScene.Bedroom);
+                    cameraManager.unloadUI(CameraScene.Downstairs);
                     soundManager.setPlaying(false);
                     dialogueBox.setProgressing(true);
                     if (dialogueBox.getIndex() == 3 && dialogueBox.lineFinished())
@@ -86,6 +88,14 @@ public class StoryManager : MonoBehaviour
                     cameraManager.setMoving(true);
                     cameraManager.loadUI(CameraScene.Downstairs);
                     dialogueBox.setProgressing(false);
+                    curStage = Story.D1MovingToWork;
+                }
+                break;
+            case Story.D1MovingToWork:
+                if (cameraManager.index == CameraScene.Study)
+                {
+                    animationManager.loveObj.SetActive(false);
+                    print("here work");
                 }
                 break;
             default:
