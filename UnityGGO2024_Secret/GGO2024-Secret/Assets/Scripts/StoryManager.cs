@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Story
 {
@@ -14,6 +15,9 @@ public class StoryManager : MonoBehaviour
     public SoundManager soundManager;
     public DialogueBox dialogueBox;
     public CameraManager cameraManager;
+    public AnimationManager animationManager;
+
+    public Button catFood;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,12 @@ public class StoryManager : MonoBehaviour
         
     }
 
+    public void CatFood ()
+    {
+        animationManager.stopAnimation(AniTimeline.WantEat);
+        animationManager.playAnimation(AniTimeline.Eat);
+        catFood.gameObject.SetActive(false);
+    }
     private void storyProgress()
     {
         switch(curStage) 
@@ -33,8 +43,11 @@ public class StoryManager : MonoBehaviour
                 }
                 if (cameraManager.index == CameraScene.Downstairs)
                 {
+                    cameraManager.setMoving(false);
                     dialogueBox.setProgressing(true);
                     dialogueBox.NextLine();
+                    dialogueBox.setProgressing(false);
+                    catFood.gameObject.SetActive(true);
                     curStage = Story.D1Eat;
                 }
                 break;

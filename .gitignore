@@ -73,3 +73,5 @@ Plugins/**/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 /UnityGGO2024_Secret/GGO2024-Secret/.plastic
+UnityGGO2024_Secret/GGO2024-Secret/.plastic/plastic.changes
+UnityGGO2024_Secret/GGO2024-Secret/.plastic/plastic.wktree
