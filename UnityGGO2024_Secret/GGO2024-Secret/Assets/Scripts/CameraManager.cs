@@ -23,7 +23,7 @@ public class CameraManager : MonoBehaviour
     public CameraScene index = CameraScene.Bedroom;
     private CameraScene tarIndex;
 
-    private bool moving = true;
+    private bool moving = false;
 
     public void ChangeCamera()
     {
@@ -35,6 +35,21 @@ public class CameraManager : MonoBehaviour
         {
             case CameraScene.Bedroom:
                 cameraBedroom.SetActive(false);
+                break;
+            case CameraScene.Downstairs:
+                cameraDownstairs.SetActive(false);
+                break;
+            case CameraScene.Study:
+                cameraStudy.SetActive(false);
+                break;
+            case CameraScene.TV:
+                cameraTV.SetActive(false);
+                break;
+            case CameraScene.Window:
+                cameraWindow.SetActive(false);
+                break;
+            case CameraScene.Sofa:
+                cameraSofa.SetActive(false);
                 break;
             default:
                 break;
@@ -51,6 +66,7 @@ public class CameraManager : MonoBehaviour
             default:
                 break;
         }
+        index = tarIndex;
     }
 
     public void setMoving(bool mov)

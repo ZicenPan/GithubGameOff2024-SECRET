@@ -8,9 +8,10 @@ public class DialogueBox : MonoBehaviour
     public string[] lines;
     public float textSpeed;
 
-    private int index;
+    public int index;
     private bool started = false;
 
+    private bool progressing = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,26 +22,34 @@ public class DialogueBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (progressing)
         {
-            if (!started)
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
-                started = true;
-                StartDialogue();
-            }
-            else
-            {
-                if (textComponent.text == lines[index])
+                if (!started)
                 {
-                    NextLine();
+                    started = true;
+                    StartDialogue();
                 }
                 else
                 {
-                    StopAllCoroutines();
-                    textComponent.text = lines[index];
+                    if (textComponent.text == lines[index])
+                    {
+                        NextLine();
+                    }
+                    else
+                    {
+                        StopAllCoroutines();
+                        textComponent.text = lines[index];
+                    }
                 }
             }
         }
+    }
+
+    public bool lineFinished()
+    {
+        return textComponent.text == lines[index];
     }
 
     void StartDialogue()
@@ -58,10 +67,10 @@ public class DialogueBox : MonoBehaviour
         }
     }
 
-    void NextLine()
+    public void NextLine()
     {
         if (index < lines.Length - 1)
-        { 
+        {
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
@@ -70,5 +79,15 @@ public class DialogueBox : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public int getIndex()
+    {
+        return index;
+    }
+
+    public void setProgressing(bool f)
+    {
+        this.progressing = f;
     }
 }
