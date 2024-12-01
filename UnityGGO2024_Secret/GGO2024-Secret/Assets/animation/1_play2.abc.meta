@@ -1,0 +1,48 @@
+fileFormatVersion: 2
+guid: da0b4166b4d823249ab7baa5b83c517d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PersianFBXASC046001/PersianFBXASC046001Shape:000:PersianFBXASC046001SG
+    second: {fileID: 2100000, guid: 6668d4ccf9987bd4b9ca84a015c90394, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PersianFBXASC046001/PersianFBXASC046001Shape:001:lambert2SG
+    second: {fileID: 2100000, guid: 387cb4b46769d6948a5204ecf5ff3b7d, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: f53f5fc499d31e44b9deee84d28a9ee8, type: 3}
+  rootGameObjectId: 
+  rootGameObjectName: 
+  importerVersion: 1
+  streamSettings:
+    normals: 1
+    tangents: 1
+    cameraAspectRatio: 2
+    importVisibility: 1
+    scaleFactor: 0.15
+    swapHandedness: 1
+    flipFaces: 0
+    interpolateSamples: 1
+    importPointPolygon: 1
+    importLinePolygon: 1
+    importTrianglePolygon: 1
+    importXform: 1
+    importCameras: 1
+    importMeshes: 1
+    importPoints: 0
+    importCurves: 1
+    createCurveRenderers: 0
+  abcStartTime: 0
+  abcEndTime: 11.416666666666666
+  startTime: 0
+  endTime: 11.416666666666666
+  importWarning: 
+  firstImport: 0
+  isHDF5: 0
