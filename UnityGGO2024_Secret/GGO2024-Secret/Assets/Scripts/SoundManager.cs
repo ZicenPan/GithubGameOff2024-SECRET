@@ -17,6 +17,9 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
 
     private bool isPlaying = true;
+    private SoundType curIndex = SoundType.MOM;
+    private float targetTime = 0;
+    private float currentTime = 0;
 
     private void Awake()
     {
@@ -31,12 +34,20 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        targetTime = 3;
+    }
+
+    public void setPlaying(bool playing)
+    {
+        this.isPlaying = playing; 
     }
     // Update is called once per frame
     void Update()
     {
-        if (isPlaying) {
-
+        currentTime += Time.deltaTime;
+        if (isPlaying && currentTime > targetTime) {
+            PlaySound(curIndex);
+            currentTime = 0;
         }
     }
 }

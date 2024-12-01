@@ -2,24 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CameraScene
+{
+    Bedroom,
+    Downstairs,
+    Study,
+    TV,
+    Window,
+    Sofa
+}
 public class CameraManager : MonoBehaviour
 {
     public GameObject cameraBedroom;
     public GameObject cameraDownstairs;
-    public int index = 0;
+    public GameObject cameraStudy;
+    public GameObject cameraTV;
+    public GameObject cameraWindow;
+    public GameObject cameraSofa;
 
+    public CameraScene index = CameraScene.Bedroom;
+    private CameraScene tarIndex;
+
+    private bool moving = true;
+
+    public void ChangeCamera()
+    {
+        GetComponent<Animator>().SetTrigger("Change");
+    }
     public void ManageCamera()
     {
-        if (index == 0)
+        switch (index)
         {
-            Cam_2();
-            index = 1;
-        } else
+            case CameraScene.Bedroom:
+                cameraBedroom.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
+        switch (tarIndex)
         {
-            Cam_1();
-            index = 0;
+            case CameraScene.Bedroom:
+                cameraBedroom.SetActive(true);
+                break;
+            case CameraScene.Downstairs:
+                cameraDownstairs.SetActive(true);
+                break;
+            default:
+                break;
         }
     }
+
+    public void setMoving(bool mov)
+    {
+        this.moving = mov;
+    }
+
     void Cam_1()
     {
         cameraBedroom.SetActive(true);
@@ -34,12 +72,31 @@ public class CameraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (moving)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                moveW();
+            }
+        }
+    }
+
+    private void moveW()
+    {
+        switch (index)
+        {
+            case CameraScene.Bedroom:
+                tarIndex = CameraScene.Downstairs;
+                break;
+            default:
+                break;
+        }
+        ChangeCamera();
     }
 }

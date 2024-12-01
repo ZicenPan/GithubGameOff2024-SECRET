@@ -208,7 +208,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3380341}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &3380345
 Camera:
   m_ObjectHideFlags: 0
@@ -1068,7 +1068,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408412686}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &408412690
 Camera:
   m_ObjectHideFlags: 0
@@ -2380,7 +2380,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729433929}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &729433933
 Camera:
   m_ObjectHideFlags: 0
@@ -3288,6 +3288,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1297597153}
   - {fileID: 1645501659}
   - {fileID: 1151100463}
   - {fileID: 408412687}
@@ -3411,12 +3412,12 @@ GameObject:
   - component: {fileID: 1297597151}
   - component: {fileID: 1297597150}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CameraSwitchAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1297597150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3478,7 +3479,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1297597153
 RectTransform:
@@ -3493,7 +3494,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2126370826}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1265139399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3750,7 +3751,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388722483}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1388722487
 Camera:
   m_ObjectHideFlags: 0
@@ -4301,6 +4302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0388764f30ccaa64c8adcc588520a012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curStage: 0
+  soundManager: {fileID: 0}
 --- !u!4 &1663687927
 Transform:
   m_ObjectHideFlags: 0
@@ -4369,9 +4372,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1094545574}
   lines:
-  - line1
-  - LIne2
-  textSpeed: 0.2
+  - Morning...
+  - Uhhh my cat is meowing again!
+  - Does she want something from me?
+  textSpeed: 0.1
 --- !u!114 &1723333529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4720,6 +4724,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraBedroom: {fileID: 1151100459}
   cameraDownstairs: {fileID: 408412686}
+  cameraStudy: {fileID: 1645501655}
+  cameraTV: {fileID: 3380341}
+  cameraWindow: {fileID: 1388722483}
+  cameraSofa: {fileID: 729433929}
   index: 0
 --- !u!1 &2133715287
 GameObject:
@@ -4852,5 +4860,4 @@ SceneRoots:
   - {fileID: 1663687927}
   - {fileID: 2054386918}
   - {fileID: 1870370859}
-  - {fileID: 1297597153}
   - {fileID: 1593112126}
