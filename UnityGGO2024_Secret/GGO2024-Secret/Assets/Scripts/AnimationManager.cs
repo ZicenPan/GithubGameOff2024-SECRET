@@ -13,6 +13,8 @@ public class AnimationManager : MonoBehaviour
 {
     public PlayableDirector wantEat;
     public PlayableDirector eat;
+    public GameObject eatObj;
+
     public PlayableDirector love;
     public GameObject loveObj;
 
@@ -49,6 +51,7 @@ public class AnimationManager : MonoBehaviour
 
     public void OnEatStopped()
     {
+        eatObj.SetActive(false);
         loveObj.SetActive(true);
         playAnimation(AniTimeline.Love);
     }

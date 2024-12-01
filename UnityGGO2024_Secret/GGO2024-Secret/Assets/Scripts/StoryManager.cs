@@ -8,7 +8,8 @@ public enum Story
 {
     Beginning,
     D1Eat,
-    D1Love
+    D1Love,
+    D1GoToWork
 }
 public class StoryManager : MonoBehaviour
 {
@@ -72,9 +73,19 @@ public class StoryManager : MonoBehaviour
                 break;
             case Story.D1Love:
                 curTimer += Time.deltaTime;
-                if (curTimer > 10.0f)
+                if (curTimer > 6.0f)
                 {
                     animationManager.OnEatStopped();
+                    curStage = Story.D1GoToWork;
+                }
+                break;
+            case Story.D1GoToWork:
+                dialogueBox.setProgressing(true);
+                if (dialogueBox.getIndex() == 4 && dialogueBox.lineFinished())
+                {
+                    cameraManager.setMoving(true);
+                    cameraManager.loadUI(CameraScene.Downstairs);
+                    dialogueBox.setProgressing(false);
                 }
                 break;
             default:
