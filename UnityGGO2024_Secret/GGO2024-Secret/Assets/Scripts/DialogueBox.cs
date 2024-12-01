@@ -9,12 +9,13 @@ public class DialogueBox : MonoBehaviour
     public float textSpeed;
 
     private int index;
+    private bool started = false;
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
+        //StartDialogue();
     }
 
     // Update is called once per frame
@@ -22,14 +23,22 @@ public class DialogueBox : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (textComponent.text == lines[index])
+            if (!started)
             {
-                NextLine();
+                started = true;
+                StartDialogue();
             }
             else
             {
-                StopAllCoroutines();
-                textComponent.text = lines[index]; 
+                if (textComponent.text == lines[index])
+                {
+                    NextLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    textComponent.text = lines[index];
+                }
             }
         }
     }
