@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
     private bool isPlaying = true;
     private SoundType curIndex = SoundType.MOM;
     private float targetTime = 0;
-    private float currentTime = 0;
+    private float currentTime = 2;
 
     private void Awake()
     {
