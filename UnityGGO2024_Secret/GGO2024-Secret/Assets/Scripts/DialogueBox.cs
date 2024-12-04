@@ -24,12 +24,14 @@ public class DialogueBox : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            print("haha");
             textBoxClicked();
         }
     }
 
     public void textBoxClicked ()
     {
+        print("clicked");
         if (!started)
         {
             started = true;

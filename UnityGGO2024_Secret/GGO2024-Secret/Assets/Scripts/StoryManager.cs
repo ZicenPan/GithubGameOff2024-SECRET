@@ -58,6 +58,7 @@ public class StoryManager : MonoBehaviour
                 }
                 if (cameraManager.index == CameraScene.Downstairs)
                 {
+                    animationManager.playAnimation(AniTimeline.WantEat);
                     cameraManager.setMoving(false);
                     cameraManager.unloadUI(CameraScene.Bedroom);
                     cameraManager.unloadUI(CameraScene.Downstairs);
